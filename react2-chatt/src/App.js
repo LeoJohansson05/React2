@@ -14,26 +14,27 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 // Firebase-hooks för autentisering och firestore-databasen
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { initializeApp } from 'firebase/app';
+
 // Firebase-konfiguration med projektets uppgifter
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAI11NgsxnHixvzuHhuTxt2qfZjszbMHME",
-  authDomain: "react2-chatt.firebaseapp.com",
-  databaseURL: "https://react2-chatt-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "react2-chatt",
-  storageBucket: "react2-chatt.appspot.com",
-  messagingSenderId: "652357184019",
-  appId: "1:652357184019:web:cca46085fd42aca8e7ade6"
+  apiKey: 'AIzaSyAI11NgsxnHixvzuHhuTxt2qfZjszbMHME',
+  authDomain: 'react2-chatt.firebaseapp.com',
+  databaseURL:
+    'https://react2-chatt-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'react2-chatt',
+  storageBucket: 'react2-chatt.appspot.com',
+  messagingSenderId: '652357184019',
+  appId: '1:652357184019:web:cca46085fd42aca8e7ade6',
 };
 const app = initializeApp(firebaseConfig);
-
-
-
-
+import { getAnalytics } from 'firebase/analytics';
 
 // Initiera Firestore-tjänster
 const db = getFirestore();
 const auth = getAuth();
-const analytics = firebase.analytics();
+const analytics = getAnalytics(app);
 
 
 
@@ -47,7 +48,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>...</h1>
+        <h1>070-4818183</h1>
         <SignOut />
       </header>
 
@@ -72,7 +73,7 @@ function SignIn() {
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle}>Logga in med Google</button>
-      <p>Bryt inte mot communityns riktlinjer</p>
+      <p>Följ mina regler!!!</p>
     </>
   );
 }
@@ -139,7 +140,7 @@ function ChatRoom() {
 
 
       <form onSubmit={sendMessage}>
-        <input ref={messageInput} value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="säg något snällt" />
+        <input ref={messageInput} value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="skriv..." />
         <button type="submit" disabled={!formValue}>Skicka</button>
       </form>
     </>

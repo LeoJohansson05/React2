@@ -5,7 +5,6 @@
   "main": "index.js",
   "homepage": "./",
   "dependencies": {
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "firebase": "^10.11.1",
     "lodash": "^4.17.1",
     "react": "^18.2.0",
